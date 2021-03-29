@@ -5,11 +5,13 @@ import java.awt.FlowLayout;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -33,8 +35,7 @@ public class test extends JFrame {
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ventana.setSize(700,700);
 		
-		area.setLineWrap(true);
-		area.setWrapStyleWord(true);
+	//	area.setEditable(false);
 		JScrollPane scroll = new JScrollPane(area);
 		ventana.getContentPane().add(scroll, BorderLayout.CENTER);
 		ventana.add(scroll);
@@ -58,8 +59,18 @@ public class test extends JFrame {
 		
 		  try
 		    {
+//			 
+//			    System.out.println("Enter username");
+//			    Scanner myObj = new Scanner(System.in); 
+//			    String userName = myObj.nextLine(); 
+			  JFrame f=new JFrame();  
+			  
+			  //poner tasklist,msinfo32,IPCONFIG,SYSTEMINFO, help en caso de windows
+			  //poner "ps -ef" en caso de linux
+			  String name=JOptionPane.showInputDialog(f,"INGRESA TU COMANDO");   
+			  
 			  String line;
-		        Process p = Runtime.getRuntime().exec("tasklist");
+		        Process p = Runtime.getRuntime().exec(name);
 		        BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		        while ((line = input.readLine()) != null)
 		        {  
