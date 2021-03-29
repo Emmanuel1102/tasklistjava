@@ -34,8 +34,7 @@ public class test extends JFrame {
 		JFrame ventana = new JFrame();
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ventana.setSize(700,700);
-		
-	//	area.setEditable(false);
+		area.setEditable(false);
 		JScrollPane scroll = new JScrollPane(area);
 		ventana.getContentPane().add(scroll, BorderLayout.CENTER);
 		ventana.add(scroll);
@@ -59,10 +58,7 @@ public class test extends JFrame {
 		
 		  try
 		    {
-//			 
-//			    System.out.println("Enter username");
-//			    Scanner myObj = new Scanner(System.in); 
-//			    String userName = myObj.nextLine(); 
+ 
 			  JFrame f=new JFrame();  
 			  
 			  //poner tasklist,msinfo32,IPCONFIG,SYSTEMINFO, help en caso de windows
