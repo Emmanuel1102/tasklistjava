@@ -1,25 +1,14 @@
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.Scanner;
-
-import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
 
-import java.awt.event.*;
 public class test extends JFrame {
 	
 	static JTextArea area = new JTextArea();
@@ -52,7 +41,7 @@ public class test extends JFrame {
 		
 		  standardOut = System.out;
 	         
-	        // re-assigns standard output stream and error output stream
+	       
 	        System.setOut(printStream);
 	        System.setErr(printStream);
 		
@@ -61,20 +50,22 @@ public class test extends JFrame {
  
 			  JFrame f=new JFrame();  
 			  
-			  //poner tasklist,msinfo32,IPCONFIG,SYSTEMINFO, help en caso de windows
+			  //poner en el joptionpane tasklist,msinfo32,IPCONFIG,SYSTEMINFO, help en caso de windows
 			  //poner "ps -ef" en caso de linux
 			  String name=JOptionPane.showInputDialog(f,"INGRESA TU COMANDO");   
 			  
 			  String line;
 		        Process p = Runtime.getRuntime().exec(name);
-		        BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		        BufferedReader input;
+                         input = new BufferedReader(new InputStreamReader(p.getInputStream(),StandardCharsets.UTF_8));
+                     
 		        while ((line = input.readLine()) != null)
 		        {  
-		        	///line.format(line, getOwnerlessWindows());
-		        	//System.out.println("\n"+"            ");
+                            
+                                 
 		        	System.out.format("%-10s ", "\n");
 		        	System.out.format("%-10s",line);
-		        	//System.out.printf(" %1$s, %1$s, %2$s",line);
+		        	
 		        	
 		        }
 		        input.close();
